@@ -1,3 +1,11 @@
+"""
+Solution to the day two problem. This is all string manipulation with a bit of modulo math optimization.
+It starts off easy, you simply need to start off by comparing the left and right side to see if a number repeats. This
+can only happen on a string with an even number of digits. Then in part two, you need to check if it is containing only
+repetitions. Again, you can do the same calculation but check for repetitions by the segment length. You can then
+optimize by only checking segments that are evenly divisible by the number of digits. ie. 1111 can be broken up into
+4 segments and two segments of 1s. A string like 1231234 can't contain repetitions as you can't evenly break it apart.
+"""
 from utils import puzzle
 
 
