@@ -5,6 +5,7 @@ have to be careful though as you run out of room for using digits from the bank 
 sure that there are enough consecutive entries in the bank to then fill the rest of the digits. Resetting anything to the
 right also ensures you don't improperly use a digit in places you shouldn't.
 """
+
 from utils import puzzle
 
 
@@ -21,8 +22,9 @@ def part1(puzzle_input):
             elif val > second:
                 second = val
         total += int(str(first) + str(second))
-        print(f'Bank: {bank}, max joltage:{int(str(first) + str(second))}')
+        print(f"Bank: {bank}, max joltage:{int(str(first) + str(second))}")
     print(total)
+
 
 @puzzle
 def part2(puzzle_input):
@@ -47,10 +49,9 @@ def part2(puzzle_input):
                 left += 1
         joltage = int("".join([str(digit) for digit in max_digits]))
         total += joltage
-        print(f'Bank: {bank}, max joltage:{joltage}')
+        print(f"Bank: {bank}, max joltage:{joltage}")
     print(total)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     part2()

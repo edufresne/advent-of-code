@@ -1,11 +1,12 @@
 from utils import puzzle
 
+
 @puzzle
 def part1(puzzle_input):
     cols = []
     ops = []
     for line in puzzle_input:
-        if '*' in line or '+' in line:
+        if "*" in line or "+" in line:
             ops.extend([val.strip() for val in line.split() if val.strip()])
         else:
             items = [int(val.strip()) for val in line.split() if val.strip()]
@@ -17,7 +18,7 @@ def part1(puzzle_input):
 
     total = 0
     for i, op in enumerate(ops):
-        if op == '+':
+        if op == "+":
             total += sum(cols[i])
         else:
             col_total = cols[i][0]
@@ -26,6 +27,7 @@ def part1(puzzle_input):
             total += col_total
 
     print(total)
+
 
 @puzzle
 def part2(puzzle_input):
@@ -37,7 +39,7 @@ def part2(puzzle_input):
     # Add RHS padding to allow for right to left enumeration
     for i, item in enumerate(puzzle_input[:-1]):
         if len(item) < max_length:
-            item += ' ' * (max_length - len(item))
+            item += " " * (max_length - len(item))
         padded_input.append(item)
 
     current_col = []
@@ -60,7 +62,7 @@ def part2(puzzle_input):
     print(cols)
     total = 0
     for i, op in enumerate(ops):
-        if op == '+':
+        if op == "+":
             total += sum(cols[i])
         else:
             col_total = cols[i][0]
@@ -70,13 +72,5 @@ def part2(puzzle_input):
     print(total)
 
 
-
-
-
-
-
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     part2()
