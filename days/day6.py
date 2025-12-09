@@ -3,6 +3,7 @@ This one is a sliding window sorta like a player piano. You just have to read ev
 whitespace. IDEs cause issues with this one as they remove trailing whitespace so I had to account for that. Build a
 string until you get all blanks. Put the items into columns and then perform the operations after on the result columns.
 """
+
 from utils import puzzle
 
 
