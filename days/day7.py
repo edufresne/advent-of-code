@@ -1,3 +1,9 @@
+"""
+This one is pretty cool. At the start you have to just count the number of beams that you split but then the second
+part you need to figure out the # of possibilities (timelines) on which path you can take. You an keep count of the #
+of paths to get to where you are in the beam. When you hit a splitter, the # of possibilities gets split on each side.
+Make sure you add up duplicate paths and then sum everything up together in the end.
+"""
 from utils import puzzle
 
 @puzzle

@@ -1,3 +1,8 @@
+"""
+This requires deduplication of the ranges of IDs or else the problem runs too slow because of the large numbers. To find
+an overlap, make sure that either side does not overlap or eclipse. Once consolidated you can just sum up the total
+length of each range.
+"""
 from utils import puzzle
 
 
