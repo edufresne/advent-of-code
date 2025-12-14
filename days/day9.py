@@ -7,6 +7,7 @@ fall right on the vertex (so you don't double count) and you have to ignore comp
 the four points are in the polygon, do one last check to ensure the edges they create don't intersect with anything. If
 they do, the line draws outside the bounds of the polygon.
 """
+
 from utils import puzzle
 
 

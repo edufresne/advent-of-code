@@ -22,6 +22,6 @@ def puzzle(f: Callable) -> Callable:
             raise ValueError(f"Missing puzzle input for day: {value}")
         else:
             puzzle_input = cache_filename.read_text()
-        f(puzzle_input=puzzle_input.splitlines())
+        f(puzzle_input.splitlines())
 
     return _callable
