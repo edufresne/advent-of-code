@@ -6,7 +6,8 @@ https://www.reddit.com/r/adventofcode/comments/1pk87hl/2025_day_10_part_2_bifurc
 
 Which finds the pattern in which you get all even remaining goals as you know that you can just duplicate press the
 rest of the buttons since in part 1 you could compute which unique buttons to press. There seems to be another linear
-algebra function using gaussian elimination.
+algebra function using gaussian elimination. This would solve a list of linear equations based on the goal and the
+buttons + presses on each.
 """
 import itertools
 import re
