@@ -8,7 +8,7 @@ I am going to try and retrofit into my solutions.
 ### My Scoreboard
 | Year | Stars | Notes                                     |
 | --- | --- |-------------------------------------------|
-| 2024 | 30/50 ⭐ | None, I can't remember this far back      |
+| 2024 | 30/50 ⭐ | First year!!                              |
 | 2025 | 25/25 ⭐ | Hardest days were definitely day 9 and 10 |
 
 ### Notes
