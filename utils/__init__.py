@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 from typing import Callable
 
-_REGEX = re.compile(r"day(\d+).py$")
+_REGEX = re.compile(r"/(\d+)/day(\d+).py$")
 
 
 def puzzle(f: Callable) -> Callable:
@@ -16,10 +16,13 @@ def puzzle(f: Callable) -> Callable:
         match = _REGEX.search(file_name)
         if not match:
             raise ValueError(f"Cannot determine puzzle day for file: {file_name}")
-        value = match.group(1)
-        cache_filename = cache_dir.joinpath(f"{value}.txt")
+        year = match.group(1)
+        if not cache_dir.joinpath(year).exists():
+            cache_dir.joinpath(year).mkdir()
+        day = match.group(2)
+        cache_filename = cache_dir.joinpath(year, f"{day}.txt")
         if not cache_filename.exists():
-            raise ValueError(f"Missing puzzle input for day: {value}")
+            raise ValueError(f"Missing puzzle input for day: {day}")
         else:
             puzzle_input = cache_filename.read_text()
         f(puzzle_input.splitlines())
