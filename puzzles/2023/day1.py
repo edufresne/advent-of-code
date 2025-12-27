@@ -4,6 +4,7 @@ you can't just string replace. Also rather than having a lookup dictionary, you 
 and keep looking at the substring. If you hit a digit, check to see if the substring is a number. If it is, move the
 pointers. If the substring is a word, increment the left bound in order to check for numbers inside numbers.
 """
+
 from utils import puzzle
 
 
@@ -42,47 +43,39 @@ def solve_single(line: str) -> int:
     return int(s[0] + s[-1])
 
 
-
-
-
-
-
-
-
 @puzzle
 def part2(puzzle_input):
     val = 0
     for line in puzzle_input:
         single_val = solve_single(line)
-        print(f'Line: {line}, val: {single_val}')
+        print(f"Line: {line}, val: {single_val}")
         val += single_val
     print(val)
 
 
 def convert_to_digit(s) -> int | None:
     s = s.lower()
-    if s == 'one':
+    if s == "one":
         return 1
-    elif s == 'two':
+    elif s == "two":
         return 2
-    elif s == 'three':
+    elif s == "three":
         return 3
-    elif s == 'four':
+    elif s == "four":
         return 4
-    elif s == 'five':
+    elif s == "five":
         return 5
-    elif s == 'six':
+    elif s == "six":
         return 6
-    elif s == 'seven':
+    elif s == "seven":
         return 7
-    elif s == 'eight':
+    elif s == "eight":
         return 8
-    elif s == 'nine':
+    elif s == "nine":
         return 9
     else:
         return None
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     part2()

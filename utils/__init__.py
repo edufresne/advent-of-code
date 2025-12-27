@@ -28,3 +28,24 @@ def puzzle(f: Callable) -> Callable:
         f(puzzle_input.splitlines())
 
     return _callable
+
+
+def adj_coords(
+    grid: list[str] | list[list], row: int, col: int
+) -> list[tuple[int, int]]:
+    n_rows = len(grid)
+    n_cols = len(grid[0])
+    return [
+        pos
+        for pos in [
+            (row - 1, col - 1),
+            (row - 1, col),
+            (row, col - 1),
+            (row - 1, col + 1),
+            (row + 1, col - 1),
+            (row + 1, col),
+            (row, col + 1),
+            (row + 1, col + 1),
+        ]
+        if 0 <= pos[0] < n_rows and 0 <= pos[1] < n_cols
+    ]

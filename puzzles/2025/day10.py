@@ -9,6 +9,7 @@ rest of the buttons since in part 1 you could compute which unique buttons to pr
 algebra function using gaussian elimination. This would solve a list of linear equations based on the goal and the
 buttons + presses on each.
 """
+
 import itertools
 import re
 from collections import defaultdict
@@ -123,7 +124,7 @@ def part2(machines: list[str]):
         coeffs = [tuple(int(i in r) for i in range(len(goal))) for r in coeffs]
 
         subanswer = solve_single(coeffs, goal)
-        print(f'Line {I}/{len(machines)}: answer {subanswer}')
+        print(f"Line {I}/{len(machines)}: answer {subanswer}")
         answer += subanswer
     print(answer)
 
