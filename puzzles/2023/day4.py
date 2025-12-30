@@ -9,11 +9,12 @@ def solve_card(winners: set[int], numbers: set[int]):
         return 1
     return 2 ** (count - 1)
 
+
 @puzzle
 def part1(puzzle_input):
     result = 0
     for card in puzzle_input:
-        values = card[card.index(':') + 1:].strip().split('|')
+        values = card[card.index(":") + 1 :].strip().split("|")
         winners = {int(val) for val in values[0].strip().split()}
         numbers = {int(val) for val in values[1].strip().split()}
         print(card)
@@ -29,7 +30,7 @@ def part2(puzzle_input):
     result = len(puzzle_input)
     win_count_map = {}
     for i, card in enumerate(puzzle_input):
-        values = card[card.index(':') + 1:].strip().split('|')
+        values = card[card.index(":") + 1 :].strip().split("|")
         winners = {int(val) for val in values[0].strip().split()}
         numbers = {int(val) for val in values[1].strip().split()}
         win_count_map[i] = len(winners & numbers)
@@ -43,8 +44,5 @@ def part2(puzzle_input):
     print(result)
 
 
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     part2()

@@ -1,50 +1,58 @@
+from collections import deque
+
 from utils import puzzle
 
 
-def solve_card(winners: set[int], numbers: set[int]):
-    count = len({number for number in numbers if number in winners})
-    if count == 0:
-        return 0
-    elif count == 1:
-        return 1
-    return 2 ** (count - 1)
-
 @puzzle
 def part1(puzzle_input):
-    result = 0
-    for card in puzzle_input:
-        values = card[card.index(':') + 1:].strip().split('|')
-        winners = {int(val) for val in values[0].strip().split()}
-        numbers = {int(val) for val in values[1].strip().split()}
-        print(card)
-        points = solve_card(winners, numbers)
-        print(points)
-        result += points
-    print(result)
+    seeds = [int(seed) for seed in puzzle_input[0].split(":")[1].strip().split()]
+    seed_to_soil_map = {}
+    soil_to_fert_map = {}
+    fert_to_water_map = {}
+    water_to_light_map = {}
+    light_to_temp_map = {}
+    temp_to_humidity_map = {}
+    humidity_to_location_map = {}
+
+    dicts_to_parse = deque(
+        [
+            seed_to_soil_map,
+            soil_to_fert_map,
+            fert_to_water_map,
+            water_to_light_map,
+            light_to_temp_map,
+            temp_to_humidity_map,
+            humidity_to_location_map,
+        ]
+    )
+    for line in puzzle_input[2:]:
+        if not line:
+            dicts_to_parse.popleft()
+        elif "-" not in line:
+            d = dicts_to_parse[0]
+            dest_start, source_start, range_length = [int(val) for val in line.split()]
+            d[(source_start, source_start + range_length - 1)] = (
+                dest_start,
+                dest_start + range_length - 1,
+            )
+
+    locations = []
+    for seed in seeds:
+        for location in locations:
+            
+
+    print(min(locations))
 
 
-@puzzle
-def part2(puzzle_input):
-    card_map = {i: 1 for i in range(len(puzzle_input))}
-    result = len(puzzle_input)
-    win_count_map = {}
-    for i, card in enumerate(puzzle_input):
-        values = card[card.index(':') + 1:].strip().split('|')
-        winners = {int(val) for val in values[0].strip().split()}
-        numbers = {int(val) for val in values[1].strip().split()}
-        win_count_map[i] = len(winners & numbers)
-    while cards_to_process := {k: v for k, v in card_map.items() if v > 0}:
-        for id_, value in cards_to_process.items():
-            card_map[id_] -= 1
-            for i in range(id_ + 1, id_ + 1 + win_count_map[id_]):
-                card_map[i] += 1
-                result += 1
 
-    print(result)
+def _overlaps(t1: tuple[int, int], t2: tuple[int, int]) -> bool:
+    return (
+        t2[0] <= t1[0] <= t2[1]
+        or t2[0] <= t1[1] <= t2[1]
+        or t1[0] <= t2[0] <= t1[1]
+        or t1[0] <= t2[1] <= t1[1]
+    )
 
 
-
-
-
-if __name__ == '__main__':
-    part2()
+if __name__ == "__main__":
+    part1()
